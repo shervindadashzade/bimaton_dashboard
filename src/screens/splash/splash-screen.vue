@@ -11,8 +11,22 @@
 </template>
 
 <script>
+import {router} from "../../helpers" 
+
 export default {
     name:"SplashScreen",
+    data:function (){
+        return {
+            splash_time : 2000,
+        }
+    },
+    mounted:function (){
+        setInterval(
+            function(){
+                router.push('login')
+            }.bind(this),this.splash_time
+        )
+    },
 }
 </script>
 

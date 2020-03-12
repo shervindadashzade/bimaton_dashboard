@@ -1,4 +1,6 @@
-# dashboard
+# Dashboard
+
+
 
 ## Project setup
 ```
