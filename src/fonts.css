@@ -1,0 +1,12 @@
+@font-face{
+    font-family : "Byekan";
+    src: url(assets/fonts/Byekan.ttf);
+}
+@font-face{
+    font-family : "Byekan";
+    font-weight: bold;
+    src: url(assets/fonts/Byekan_bold.ttf);
+}
+*{
+    font-family: "Byekan";
+}

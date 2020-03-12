@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SplashScreen v-if="splash_toggle" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SplashScreen from "./components/screens/splash-screen";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+   SplashScreen,
+  },
+  data:function(){
+    return{
+      time:2000,
+      splash_toggle:true,
+    }
+  },
+  mounted(){
+    setInterval(function(){
+      this.splash_toggle = false;
+    }.bind(this),this.time);
+  },
 }
 </script>
 
+<style lang="scss" src="./themes.scss" />
+<style src="./fonts.css" />
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  *{
+    padding: 0px;
+    margin: 0px;
+  }
 </style>

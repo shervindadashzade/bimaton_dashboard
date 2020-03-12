@@ -1,0 +1,7 @@
+@import "../node_modules/vue-material/dist/theme/engine";
+
+@include md-register-theme("widget-theme", (
+  primary: white,
+));
+
+@import "../node_modules/vue-material/dist/theme/all";
