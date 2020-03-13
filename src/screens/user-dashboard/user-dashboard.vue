@@ -10,14 +10,6 @@
                     <md-icon>menu</md-icon>
                 </md-button>
                 <span class="md-title">پنل مدیریت </span>
-
-                <!-- TODO::should hide on small screens -->
-                <div class="user-info">
-                <md-avatar>
-                    <md-icon>account_circle</md-icon>
-                </md-avatar>
-                <span>امیرحسین داداش زاده</span>
-                </div>
                 </div>
                 
                 <div class="md-toolbar-section-end">
@@ -30,21 +22,42 @@
             </md-app-toolbar>
 
             <md-app-drawer class="md-right" :md-active.sync="drawer_toggle">
-                <md-toolbar class="md-primary" md-elevation="0"></md-toolbar>
+                <div class="drawer-header">
+                    <md-avatar class="user-pic md-large">
+                        <md-icon>account_circle</md-icon>
+                    </md-avatar>
+                    <h3>امیرحسین داداش زاده</h3>
+                    <h4>shervin.dadashzade@gmail.com</h4>
+                </div>
                  <md-list>
           <md-list-item @click="print('hi')">
-            <md-icon>move_to_inbox</md-icon>
+            <md-icon>shopping_cart</md-icon>
             <span class="md-list-item-text">بیمه های من</span>
           </md-list-item>
 
           <md-list-item @click="print('hi')">
-            <md-icon>send</md-icon>
+            <md-icon>inbox</md-icon>
             <span class="md-list-item-text">پیام ها</span>
           </md-list-item>
 
           <md-list-item @click="print('hi')">
-            <md-icon>delete</md-icon>
+            <md-icon>my_location</md-icon>
             <span class="md-list-item-text">ادرس ها</span>
+          </md-list-item>
+
+          <md-list-item @click="print('hi')">
+            <md-icon>timer</md-icon>
+            <span class="md-list-item-text">یادآورها</span>
+          </md-list-item>
+          
+          <md-list-item @click="print('hi')">
+            <md-icon>settings</md-icon>
+            <span class="md-list-item-text">تنظیمات</span>
+          </md-list-item>
+
+          <md-list-item @click="print('hi')">
+            <md-icon>phone</md-icon>
+            <span class="md-list-item-text">تماس با ما</span>
           </md-list-item>
 
           <md-list-item @click="print('hi')">
@@ -53,6 +66,9 @@
           </md-list-item>
         </md-list>
             </md-app-drawer>
+
+            <md-app-content>
+            </md-app-content>
         </md-app>
     </div>
 </template>
@@ -60,6 +76,8 @@
 <script>
 export default {
     name:"UserDashboard",
+    components:{
+    },
     data:function (){
         return{
             drawer_toggle:false,
@@ -80,6 +98,9 @@ export default {
 .md-app{
     height: 100vh;
 }
+.md-title{
+    margin-right: 10px !important;
+}
 .md-drawer{
     width: 300px;
 }
@@ -91,5 +112,22 @@ export default {
 }
 .md-list-item .md-icon{
     margin-left: 20px;
+}
+.drawer-header{
+    background: #E9AB2E;
+    text-align: center;
+    height: 160px;
+    color: rgb(53, 53, 53);
+}
+.user-pic{
+    margin-top: 20px;
+}
+.drawer-header h4{
+    font-weight: normal;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+.drawer-header h3{
+    margin-bottom: 15px;
 }
 </style>
