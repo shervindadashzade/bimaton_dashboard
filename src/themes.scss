@@ -1,7 +1,14 @@
 @import "../node_modules/vue-material/dist/theme/engine";
 
+
 @include md-register-theme("widget-theme", (
   primary: white,
+));
+
+@include md-register-theme("default", (
+  primary: #E9AB2E, // The primary color of your application
+  accent: white,
+  theme:light// The accent or secondary color
 ));
 
 @import "../node_modules/vue-material/dist/theme/all";

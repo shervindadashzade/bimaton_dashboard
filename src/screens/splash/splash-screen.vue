@@ -1,13 +1,11 @@
 <template>
-    <transition name="top">
     <div class="screen">
         <div class="logo-container">
         <md-icon class="md-size-4x">verified_user</md-icon>
-        <h1>مدیریت محتوا بیمتون</h1>
+        <h1>مدیریت سیستم بیمتون</h1>
         </div>
        <md-progress-spinner md-mode="indeterminate" md-theme="widget-theme" :md-diameter="50" :md-stroke="5"></md-progress-spinner>
     </div>
-    </transition>
 </template>
 
 <script>
@@ -59,21 +57,7 @@ export default {
 .screen{
     width: 100vw;
     height: 100vh;
-    background: #1b262c;
-}
-.top-enter-active{
-    animation: top-anim 0.5s;
-}
-.top-leave-active{
-    animation: top-anim 0.5s reverse;
-}
-@keyframes top-anim{
-  0%{
-      transform: translatex(-1000px);
-  }
-  100%{
-      transform: translateY(0px);
-  }
+    background: #448AFF;
 }
 
 </style>

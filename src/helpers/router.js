@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import SplashScreen from "../screens/splash/splash-screen"
 import LoginScreen from "../screens/login/login-screen"
+import UserDashboard from "../screens/user-dashboard/user-dashboard"
 
 
 Vue.use(Router)
@@ -13,13 +14,14 @@ export const router = new Router({
     routes:[
         {path:"/",component:SplashScreen},
         {path:"/login",component:LoginScreen},
+        { path:"/user_dashboard",component:UserDashboard}
     ]
 }
 )
 
 // check user is logedin for auth required pages
 router.beforeEach((to,from,next)=>{
-    const publicPages = ['/','/login'];
+    const publicPages = ['/','/login','/user_dashboard'];
     const authRequired = !publicPages.includes(to.path);
     const loggedIn = localStorage.getItem('user');
 

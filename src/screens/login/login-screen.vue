@@ -9,6 +9,7 @@
 
       <md-card-content>
          <h3>با سلام</h3>
+
          به سامانه مدیریت بیمتون خوش آمدید لطفا نام کاربری و پسورد خود را وارد کنید
         <br>
         <br>
@@ -17,9 +18,9 @@
       <md-input></md-input>
     </md-field>
 
-    <md-field>
+    <md-field :md-toggle-password="false">
       <label>پسورد</label>
-      <md-input ></md-input>
+      <md-input type="password" ></md-input>
     </md-field>
 
     <md-checkbox class="md-primary" v-model="remember">مرا به خاطر بسپار</md-checkbox>
@@ -64,7 +65,7 @@ export default {
  }
  .md-card-header{
      text-align: center;
-     color: #448AFF;
+     color: #E9AB2E;
      margin-bottom: 20px;
      padding-bottom: 30px;
  }
