@@ -30,37 +30,43 @@
                     <h4>shervin.dadashzade@gmail.com</h4>
                 </div>
                  <md-list>
-          <md-list-item @click="print('hi')">
+          
+           <md-list-item @click="goto('/user_dashboard')">
+            <md-icon>home</md-icon>
+            <span class="md-list-item-text">خانه</span>
+          </md-list-item>
+
+          <md-list-item @click="goto('/user_dashboard/insurance')">
             <md-icon>shopping_cart</md-icon>
             <span class="md-list-item-text">بیمه های من</span>
           </md-list-item>
 
-          <md-list-item @click="print('hi')">
+          <md-list-item @click="goto('/user_dashboard/messages')">
             <md-icon>inbox</md-icon>
             <span class="md-list-item-text">پیام ها</span>
           </md-list-item>
 
-          <md-list-item @click="print('hi')">
+          <md-list-item @click="goto('/user_dashboard/addresses')">
             <md-icon>my_location</md-icon>
             <span class="md-list-item-text">ادرس ها</span>
           </md-list-item>
 
-          <md-list-item @click="print('hi')">
+          <md-list-item @click="goto('/user_dashboard/reminders')">
             <md-icon>timer</md-icon>
             <span class="md-list-item-text">یادآورها</span>
           </md-list-item>
           
-          <md-list-item @click="print('hi')">
+          <md-list-item @click="goto('/user_dashboard/settings')">
             <md-icon>settings</md-icon>
             <span class="md-list-item-text">تنظیمات</span>
           </md-list-item>
 
-          <md-list-item @click="print('hi')">
+          <md-list-item @click="goto('/user_dashboard/callus')">
             <md-icon>phone</md-icon>
             <span class="md-list-item-text">تماس با ما</span>
           </md-list-item>
 
-          <md-list-item @click="print('hi')">
+          <md-list-item @click="goto('/user_dashboard/aboutus')">
             <md-icon>error</md-icon>
             <span class="md-list-item-text">درباره ما</span>
           </md-list-item>
@@ -68,6 +74,7 @@
             </md-app-drawer>
 
             <md-app-content>
+                <router-view></router-view>
             </md-app-content>
         </md-app>
     </div>
@@ -89,6 +96,10 @@ export default {
         },
         print(str){
             console.log(str);
+        },
+        goto(str){
+            this.$router.push(str);
+            this.menu_toggle();
         }
     },
 }
