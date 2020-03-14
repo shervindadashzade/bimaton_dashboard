@@ -44,6 +44,8 @@
           <md-list-item @click="goto('/user_dashboard/messages')">
             <md-icon>inbox</md-icon>
             <span class="md-list-item-text">پیام ها</span>
+            <!-- TODO:should show unreaded messages  -->
+            <md-badge class="md-primary" md-position="top" md-content="4"></md-badge>
           </md-list-item>
 
           <md-list-item @click="goto('/user_dashboard/addresses')">
@@ -127,7 +129,7 @@ export default {
 .drawer-header{
     background: #E9AB2E;
     text-align: center;
-    height: 160px;
+    height: 140px;
     color: rgb(53, 53, 53);
 }
 .user-pic{
@@ -139,6 +141,9 @@ export default {
     margin-bottom: 5px;
 }
 .drawer-header h3{
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+}
+.md-badge > div{
+    margin-right: 20px !important;
 }
 </style>

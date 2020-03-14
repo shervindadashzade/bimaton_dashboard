@@ -57,7 +57,7 @@ export default {
 .screen{
     width: 100vw;
     height: 100vh;
-    background: #448AFF;
+    background: #E9AB2E;
 }
 
 </style>
