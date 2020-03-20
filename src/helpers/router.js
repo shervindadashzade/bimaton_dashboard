@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import SplashScreen from "../screens/splash/splash-screen"
 import LoginScreen from "../screens/login/login-screen"
+import RegisterScreen from "../screens/register/register-screen"
 
 import UserDashboard from "../screens/user-dashboard/user-dashboard"
 import UserDashboardHome from "../screens/user-dashboard/home"
@@ -34,6 +35,7 @@ export const router = new Router({
            {path:'callus',component:CallUsScreen},
            {path:'aboutus',component:AboutUsScreen}
          ]},
+         {path:"/register",component:RegisterScreen}
     ]
 }
 )

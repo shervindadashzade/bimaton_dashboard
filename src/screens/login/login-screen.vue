@@ -22,12 +22,12 @@
       <label>پسورد</label>
       <md-input type="password" ></md-input>
     </md-field>
-
     <md-checkbox class="md-primary" v-model="remember">مرا به خاطر بسپار</md-checkbox>
-
+     <br>
       </md-card-content>
 
       <md-card-actions>
+        <md-button class="md-raised md-accent" @click="register">هنوز ثبت نام نکردید ؟</md-button>
         <md-button >فراموشی رمز عبور</md-button>
         <md-button class="md-raised md-primary">ورود</md-button>
       </md-card-actions>
@@ -43,16 +43,16 @@ export default {
       return{
         remember:false
       }
+    },
+    methods:{
+      register(){
+        this.$router.push('/register');
+      }
     }
 }
 </script>
 
 <style scoped>
-.screen{
-  width: 100vw;
-  height: 100vh;
-  background: rgb(238, 238, 238);
-}
  .md-layout{
      position: absolute;
      top: 50%;
