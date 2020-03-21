@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import Test from "../screens/test";
+
 import SplashScreen from "../screens/splash/splash-screen"
 import LoginScreen from "../screens/login/login-screen"
 import RegisterScreen from "../screens/register/register-screen"
@@ -22,6 +24,7 @@ Vue.use(Router)
 export const router = new Router({
     mode:"history",
     routes:[
+        {path:"/test",component:Test},
         {path:"/",component:SplashScreen},
         {path:"/login",component:LoginScreen},
         { path:"/user_dashboard",component:UserDashboard,
