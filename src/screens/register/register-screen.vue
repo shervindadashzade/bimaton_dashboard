@@ -83,7 +83,7 @@ export default {
             this.complete=true;
         }
         
-    }
+    },
 }
 </script>
 
@@ -107,5 +107,11 @@ export default {
      text-align: center;
      margin-bottom: 20px;
      color: white;
+ }
+ @media only screen and (max-width: 500px) {
+     .container{
+         width: 95%;
+         top: 120px;
+     }
  }
 </style>

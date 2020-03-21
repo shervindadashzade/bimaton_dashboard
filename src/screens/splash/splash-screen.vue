@@ -18,7 +18,7 @@ export default {
             splash_time : 2000,
         }
     },
-    mounted:function (){
+    created:function (){
         setInterval(
             function(){
                 router.push('login')

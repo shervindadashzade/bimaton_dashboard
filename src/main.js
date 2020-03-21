@@ -8,6 +8,12 @@ import 'vue-material/dist/vue-material.css'
 
 Vue.use(VueMaterial);
 
+
+//setup fake backend
+import {configureFakeBackend} from "./helpers"
+configureFakeBackend();
+
+
 new Vue({
   render: h => h(App),
   router,
