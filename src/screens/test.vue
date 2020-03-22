@@ -5,20 +5,15 @@
 </template>
 
 <script>
-import config from "../config.js"
-
+import { mapActions } from 'vuex';
 export default {
     name:'Test',
+    methods:{
+        ...mapActions('account',['sendSMS','checkCode']),
+
+    },
     created:function(){
-        /** 
-        let data = {phone:"09362119480"}
-        const requestOptions = {
-            method : "POST",
-            headers : {"Content-Type" : "application/json"},
-            body : JSON.stringify(data)
-        };
-        */
-       console.log(config);
+        this.sendSMS('09127874128')
     },
 }
 </script>

@@ -37,7 +37,7 @@ export function configureFakeBackend() {
                     if(checkExist){
                         reject('this number already exists')
                     }else{
-                        resolve({ok:true})
+                        resolve({ok:true , text: Promise.resolve('sms sended')})
                     }
                     return ;
                 }
@@ -45,7 +45,7 @@ export function configureFakeBackend() {
                 if(url.endsWith('/users/checkCode') && options.method === 'POST'){
                     let data = JSON.parse(options.body);
                     if(data.code === "4979"){
-                        resolve({ok:true});
+                        resolve({ok:true , text: Promise.resolve('correct code')});
                     }else{
                         reject('invalid code')
                     }

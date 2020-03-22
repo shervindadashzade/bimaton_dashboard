@@ -1,11 +1,12 @@
 import config from '../config.js';
-import { authHeader } from "../helpers"
 
-export const userService{
+export const userService = {
 	sendSMS,
 	checkCode,
-	
+
 };
+
+config;
 
 function sendSMS(phone){
 	const requestOptions = {
@@ -18,18 +19,18 @@ function sendSMS(phone){
 }
 
 function checkCode(phone,code){
-	const requestOptinos{
+	const requestOptions = {
 		method : "POST",
 		headers : {"Content-Type" : "application/json"},
-		body : JSON.stringify({phone,code});
+		body : JSON.stringify({phone,code}),
 	};
 
 	return fetch('${config.apiUrl}/users/checkCode',requestOptions).then(handleResponse);
 }
 
 function handleResponse(response){
-	return response.text().then(text => {
-		const data = text && JSON.parse(text);
+	return response.text.then(text => {
+		const data = text;
 		if (!response.ok){
 			//TODO:: check if unauthrozied reload to login page
 
