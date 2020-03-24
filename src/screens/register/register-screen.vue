@@ -10,20 +10,25 @@
                 <span>شماره تلفن خود را به صورت کامل وارد نمایید</span>
                 <md-field style="width:300px">
                  <label>شماره تلفن</label>
-                 <md-input maxlength="11" ></md-input>
+                 <md-input v-model="phone" maxlength="11" ></md-input>
                  <md-icon>phone</md-icon>
                 </md-field>
-                <md-button class="md-raised md-primary" @click="setDone('first','second')">مرحله بعد</md-button>
+                <md-button class="md-raised md-primary" @click="sendSMSSubmit()" :disabled="alert.isLoading">مرحله بعد</md-button>
+
+                <md-progress-spinner v-if="alert.isLoading" style="margin-right: 20px; margin-top: 10px;" md-mode="indeterminate" :md-diameter="30" ></md-progress-spinner>
             </md-step>
 
             <md-step :md-editable="false" id="second" md-label="تایید شماره تلفن" :md-done.sync="second">
                 <span>کد فعالسازی که از طریق sms برای شما ارسال شده است را وارد نمایید</span>
-                <md-field style="width:300px">
+                <md-field :class="invalidClass" style="width:300px">
                  <label>کد فعالسازی</label>
-                 <!--- TODO::set max for sms code --->
-                 <md-input maxlength="8" ></md-input>
+                 <!--- TODO::set max for sms code -->
+                 <md-input v-model="code" maxlength="8" ></md-input>
                 </md-field>
-                <md-button class="md-raised md-primary" @click="setDone('second','third')">مرحله بعد</md-button>
+                <md-button class="md-raised md-primary" @click="checkCodeSubmit()" >مرحله بعد</md-button>
+                <md-progress-spinner v-if="alert.isLoading" style="margin-right: 20px; margin-top: 10px;" md-mode="indeterminate" :md-diameter="30" ></md-progress-spinner>
+                <br>
+                <span class="error" >{{ alert.message }}</span>
             </md-step>
             <md-step :md-editable="false" id="third" md-label="وارد کردن اطلاعات" :md-done.sync="third">
                 <div v-if="!complete">
@@ -54,7 +59,6 @@
             <md-button class="md-accent">برو به صفحه ورود</md-button>
             </div>
             </md-step>
-            
         </md-steppers>
         </div>
     </div>
@@ -62,6 +66,7 @@
 </template>
 
 <script>
+import { mapState,mapActions } from "vuex";
 export default {
     name:'RegisterScreen',
     data:function (){
@@ -71,23 +76,55 @@ export default {
             second:false,
             third:false,
             complete:false,
+            phone: '',
+            code:'',
+        }
+    },
+    computed:{
+        ...mapState({
+            alert : state => state.alert
+        }),
+        invalidClass(){
+            console.log(this.alert.type);
+            if(this.alert.type == 'error'){
+                return { 'md-invalid' : true }
+            }else{
+                return { }
+            }
         }
     },
     methods: {
+        ...mapActions('account',['sendSMS','checkCode']),
         setDone (id,index){
+            if(this.alert.message == ''){
             this[id] = true
             if(index){
             this.active = index
             }
             if(id=='third')
             this.complete=true;
-        }
+            }
+        },
+        sendSMSSubmit(){
+            // TODO:: some vevalidate should
+            this.sendSMS({phone:this.phone}).then(()=>{
+                this.setDone('first','second');
+            })
+        },
+        checkCodeSubmit(){
+            this.checkCode({phone:this.phone,code:this.code}).then(()=>{
+                this.setDone('second','third');
+            })
+        },
         
     },
 }
 </script>
 
 <style scoped>
+.error{
+    color: #ff5252;
+ }
  .container{
      background: white;
      width: auto;

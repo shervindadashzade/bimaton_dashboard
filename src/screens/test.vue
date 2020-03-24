@@ -13,7 +13,7 @@ export default {
 
     },
     created:function(){
-        this.sendSMS('09127874128')
+        this.checkCode({phone:'0912',code:'4979'})
     },
 }
 </script>
